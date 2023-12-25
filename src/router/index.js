@@ -12,8 +12,24 @@ const router = createRouter({
           component:()=>import("@/views/home/home.vue")
         },
         {
-          path:"",
-          
+          path:"/home",
+          component:()=>import("@/views/home/home.vue")
+        },
+        {
+          path:"/quote",
+          component:()=>import("@/views/quote/quote.vue")
+        },
+        {
+          path:"/mining",
+          component:()=>import("@/views/mining/mining.vue")
+        },
+        {
+          path:"/contract",
+          component:()=>import("@/views/contract/contract.vue")
+        },
+        {
+          path:"/mine",
+          component:()=>import("@/views/mine/mine.vue")
         }
       ])
     }
