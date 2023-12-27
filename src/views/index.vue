@@ -16,11 +16,11 @@ const active = ref(0);
         <span class="material-symbols-outlined"> landscape </span><br />
         <span>矿机</span>
       </van-tabbar-item>
-      <van-tabbar-item to="/contract">
+      <van-tabbar-item to="/scene">
         <span class="material-symbols-outlined"> view_in_ar </span><br />
         <span>实景</span>
       </van-tabbar-item>
-      <van-tabbar-item to="/contract">
+      <van-tabbar-item to="/info">
         <span class="material-symbols-outlined"> feed </span><br />
         <span>资讯</span>
       </van-tabbar-item>

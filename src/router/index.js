@@ -16,16 +16,16 @@ const router = createRouter({
           component:()=>import("@/views/home/home.vue")
         },
         {
-          path:"/quote",
-          component:()=>import("@/views/quote/quote.vue")
-        },
-        {
           path:"/mining",
           component:()=>import("@/views/mining/mining.vue")
         },
         {
-          path:"/contract",
-          component:()=>import("@/views/contract/contract.vue")
+          path:"/scene",
+          component:()=>import("@/views/scene/scene.vue")
+        },
+        {
+          path:"/info",
+          component:()=>import("@/views/info/info.vue")
         },
         {
           path:"/mine",
