@@ -70,6 +70,36 @@ const coinList = ref([
   },
 ]);
 
+const videoList = ref([
+  {
+    poster: "https://www.rhy.zone/static/web/img/bigt_21.jpg",
+    src: "https://www.rhy.zone/static/web/video/rhy21.mp4",
+  },
+  {
+    poster: "https://www.rhy.zone/static/web/img/bigt_02.jpg",
+    src: "https://www.rhy.zone/static/web/video/rhy02.mp4",
+  },
+  {
+    poster: "https://www.rhy.zone/static/web/img/bigt_16.jpg",
+    src: "https://www.rhy.zone/static/web/video/rhy16.mp4",
+  },
+]);
+
+const infoList = ref([
+  {
+    img: "https://www.rhy.zone/static/web/img/bigt_02.jpg",
+    title: "2022年，比特币算力或将达到300 EH/s，如何降低挖矿成本？",
+    content:
+      "据 BTC.com数据，在哈萨克斯坦恢复网络后，近三日比特币挖矿全网算力已经超过 200EH/s，达到历史新高。此前外界普遍预计，2022年比特币全网算力将达到300",
+  },
+  {
+    img: "https://www.rhy.zone/static/web/img/bigt_02.jpg",
+    title: "2022年，比特币算力或将达到300 EH/s，如何降低挖矿成本？",
+    content:
+      "据 BTC.com数据，在哈萨克斯坦恢复网络后，近三日比特币挖矿全网算力已经超过 200EH/s，达到历史新高。此前外界普遍预计，2022年比特币全网算力将达到300",
+  },
+]);
+
 const getPrice = () => {
   coinList.value.forEach(async (item) => {
     const { data: res } = await axios.get(
@@ -89,7 +119,7 @@ const getPrice = () => {
 
 setInterval(() => {
   getPrice();
-},2000);
+}, 2000);
 
 onMounted(() => {
   getPrice();
@@ -133,9 +163,57 @@ onMounted(() => {
     </div>
     <div class="coin">
       <div v-for="(item, index) in coinList" :key="index">
-        <span style="color: #323232;">{{ item.type.toUpperCase() }}/USDT</span>
+        <span style="color: #323232">{{ item.type.toUpperCase() }}/USDT</span>
         <span :class="item.up == 1 ? 'up' : 'down'">{{ item.price }}</span>
         <span :class="item.up == 1 ? 'up' : 'down'">{{ item.parcent }}%</span>
+      </div>
+    </div>
+    <div class="shot">
+      <div class="title">
+        <div>
+          <span class="left"></span>
+          <p>矿场实景</p>
+        </div>
+        <div>
+          <span>更多</span>
+          <span class="material-symbols-outlined"> chevron_right </span>
+        </div>
+      </div>
+      <div class="shot_list">
+        <video
+          v-for="(item, index) in videoList"
+          :key="index"
+          width="330"
+          height="130"
+          controls
+          :poster="item.poster"
+        >
+          <source :src="item.src" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+    <div class="info">
+      <div class="title">
+        <div>
+          <span class="left"></span>
+          <p>资讯</p>
+        </div>
+        <div>
+          <span>更多</span>
+          <span class="material-symbols-outlined"> chevron_right </span>
+        </div>
+      </div>
+      <div class="content">
+        <div class="box" v-for="(item, index) in infoList" :key="index">
+          <img :src="item.img" alt="" />
+          <div>
+            <span>{{ item.title }}</span>
+            <p>
+              {{ item.content }}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -148,7 +226,7 @@ onMounted(() => {
   padding: 15px 15px 60px 15px;
   color: #222831;
   hr {
-    border: 3px solid gray;
+    border: 3px solid rgb(195, 195, 195);
   }
   .header {
     display: flex;
@@ -218,6 +296,102 @@ onMounted(() => {
       }
       .down {
         color: #e84545;
+      }
+    }
+  }
+  .shot {
+    width: auto;
+    height: auto;
+    background: #fffbe8;
+    padding: 15px;
+    .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      .left {
+        width: 5px;
+        height: 20px;
+        background: linear-gradient(to bottom, #ff2e63, #e3fdfd);
+        margin-right: 10px;
+      }
+      p {
+        font-weight: 600;
+        font-size: 17px;
+      }
+      div {
+        display: flex;
+        align-items: center;
+      }
+    }
+    .shot_list {
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      video {
+        margin: 10px 0px;
+      }
+    }
+  }
+  .info {
+    margin-top: 15px;
+    width: auto;
+    height: auto;
+    background: #fffbe8;
+    padding: 15px;
+    .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      .left {
+        width: 5px;
+        height: 20px;
+        background: linear-gradient(to bottom, #ff2e63, #e3fdfd);
+        margin-right: 10px;
+      }
+      p {
+        font-weight: 600;
+        font-size: 17px;
+      }
+      div {
+        display: flex;
+        align-items: center;
+      }
+    }
+    .content {
+      padding-bottom: 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      .box {
+        margin-top: 15px;
+        padding: 10px 0px;
+        width: auto;
+        height: 80px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid gray;
+        display: flex;
+        justify-content: space-between;
+        div {
+          padding-left: 10px;
+        }
+        img {
+          width: 140px;
+          height: 80px;
+        }
+        span {
+          font-weight: 600;
+          font-size: 14px;
+        }
+        p {
+          font-size: 14px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box; //作为弹性伸缩盒子模型显示。
+          -webkit-box-orient: vertical; //设置伸缩盒子的子元素排列方式--从上到下垂直排列
+          -webkit-line-clamp: 2; //显示的行
+        }
       }
     }
   }
