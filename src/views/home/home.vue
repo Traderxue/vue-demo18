@@ -130,7 +130,7 @@ onMounted(() => {
   <div class="home">
     <div class="header">
       <span></span>
-      <span class="title">RHY Bitcoin mining</span>
+      <span class="title">首页</span>
       <span class="material-symbols-outlined"> sms </span>
     </div>
     <div class="banner">
@@ -210,7 +210,7 @@ onMounted(() => {
           <div>
             <span>{{ item.title }}</span>
             <p>
-              {{ item.content }}
+              &nbsp;&nbsp;  &nbsp;&nbsp;{{ item.content }}
             </p>
           </div>
         </div>
@@ -232,7 +232,7 @@ onMounted(() => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-weight: 600;
+    // font-weight: 600;
   }
   .banner {
     width: auto;
