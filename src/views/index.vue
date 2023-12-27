@@ -12,17 +12,17 @@ const active = ref(0);
         ><span class="material-symbols-outlined"> home </span><br />
         <span>首页</span>
       </van-tabbar-item>
-      <van-tabbar-item to="/quote">
-        <span class="material-symbols-outlined"> monitoring </span><br />
-        <span>行情</span>
-      </van-tabbar-item>
       <van-tabbar-item to="/mining">
         <span class="material-symbols-outlined"> landscape </span><br />
         <span>矿机</span>
       </van-tabbar-item>
       <van-tabbar-item to="/contract">
-        <span class="material-symbols-outlined"> list_alt </span><br />
-        <span>合约</span>
+        <span class="material-symbols-outlined"> view_in_ar </span><br />
+        <span>实景</span>
+      </van-tabbar-item>
+      <van-tabbar-item to="/contract">
+        <span class="material-symbols-outlined"> feed </span><br />
+        <span>资讯</span>
       </van-tabbar-item>
       <van-tabbar-item to="/mine">
         <span class="material-symbols-outlined"> person </span><br />
